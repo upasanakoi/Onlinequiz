@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - Quiz Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9f5fc;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2c6cb0;
+        }
+
+        main {
+            max-width: 800px;
+            background-color: white;
+            margin: 3rem auto;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #4a90e2;
+            margin-bottom: 2rem;
+        }
+
+        #resultsDisplay {
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-top: 1.5rem;
+            background-color: #e9f5fc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        footer {
+            background-color: #4a90e2;
+            color: white;
+            padding: 1rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quiz Challenge</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="results">
+            <h1>Your Results</h1>
+            <p id="resultsDisplay">Loading your results...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2024 Quiz Challenge. Crafted with fun and learning in mind.</p>
+    </footer>
+    
+    <script>
+        // Extract score from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+
+        if (score !== null) {
+            document.getElementById('resultsDisplay').innerText = `You scored ${score} out of 10!`;
+        } else {
+            document.getElementById('resultsDisplay').innerText = 'No quiz results found.';
+        }
+    </script>
+</body>
+</html>
+
